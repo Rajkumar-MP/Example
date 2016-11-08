@@ -1,0 +1,212 @@
+<!doctype html>
+<html ng-app="todoApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="todo.js"></script>
+    <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css">
+	<style>
+		.done-true {
+		  text-decoration: line-through;
+		  color: grey;
+		}
+		input:focus { outline-color: transparent;}
+		input[type="text"], input[type="email"] { border: 1px solid #2196f3 !important; padding:0 10px;}
+	</style>
+  </head>
+  <body>
+    <div ng-controller="TodoListController as todoList" class="container">
+		<h2>Todo</h2>
+      <span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
+      [ <a href="" ng-click="todoList.archive()">Delete Completed</a> ]
+      <ul class="unstyled">
+        <li ng-repeat="todo in todoList.todos">
+          <label class="checkbox">
+            <input type="checkbox" ng-model="todo.done">
+            <span class="done-{{todo.done}}">{{todo.text}}</span>
+          </label>
+        </li>
+      </ul>
+	  
+		<div class="list-group">
+			<a href="javascript:;" ng-repeat="todo in todoList.todos" class="list-group-item">{{todo.text}} </a>
+		</div>
+      <form ng-submit="todoList.addTodo()">
+        <input type="text" ng-model="todoList.todoText"  size="30"
+               placeholder="add new todo here" required>
+        <input class="btn-primary" type="submit" value="add">
+      </form>
+    </div>
+	
+	<div class="container"  ng-controller="mainController">
+    
+    <!-- PAGE HEADER -->
+    <div class="page-header"><h1>AngularJS Form Validation</h1></div>
+   
+    <!-- =================================================================== -->
+    <!-- FORM ============================================================== -->
+    <!-- =================================================================== -->
+    
+    <!-- pass in the variable if our form is valid or invalid -->
+    <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+
+        <!-- NAME -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+            <label>Name*</label>
+            <input type="text" name="name" class="form-control" ng-model="user.name" required>
+            <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">You name is required.</p>
+        </div>
+        
+        <!-- USERNAME -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
+            <label>Username</label>
+            <input type="text" name="username" class="form-control" ng-model="user.username" ng-minlength="3" ng-maxlength="8">
+            <p ng-show="userForm.username.$error.minlength" class="help-block">Username is too short.</p>
+            <p ng-show="userForm.username.$error.maxlength" class="help-block">Username is too long.</p>
+        </div>
+            
+        <!-- EMAIL -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" ng-model="user.email">
+            <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+        
+    </form>
+    
+    <!-- =================================================================== -->
+    <!-- VALIDATION TABLES ================================================= -->
+    <!-- =================================================================== -->
+    <div class="page-header"><h1>Validation Tables</h1></div>
+    
+    <div class="row">
+        <div class="col-xs-3">
+            <h3>Form</h3>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td ng-class="{ success: userForm.$valid, danger: userForm.$invalid }">Valid</td>
+                    </tr>
+                    <tr>
+                        <td ng-class="{ success: userForm.$pristine, danger: !userForm.$pristine }">Pristine</td>
+                    </tr>
+                    <tr>
+                        <td ng-class="{ success: userForm.$dirty }">Dirty</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xs-3">
+            <h3>Name</h3>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td ng-class="{ success: userForm.name.$valid, danger: userForm.name.$invalid }">Valid</td>
+                    </tr>
+                    <tr>
+                        <td ng-class="{ success: userForm.name.$pristine, danger: !userForm.name.$pristine }">Pristine</td>
+                    </tr>
+                    <tr>
+                        <td ng-class="{ success: userForm.name.$dirty }">Dirty</td>
+                    </tr>
+                    <tr>
+                        <td ng-class="{ success: userForm.name.$touched }">Touched</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xs-3">
+            <h3>Username</h3>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td ng-class="{ success: userForm.username.$valid, danger: userForm.username.$invalid }">Valid</td>
+                    </tr>
+                    <tr>
+                        <td ng-class="{ success: userForm.username.$pristine, danger: !userForm.username.$pristine }">Pristine</td>
+                    </tr>
+                    <tr>
+                        <td ng-class="{ success: userForm.username.$dirty }">Dirty</td>
+                    </tr>
+                    <tr>
+                        <td ng-class="{ success: userForm.username.$touched }">Touched</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xs-3">
+            <h3>Email</h3>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td ng-class="{ success: userForm.email.$valid, danger: userForm.email.$invalid }">Valid</td>
+                    </tr>
+                    <tr>
+                        <td ng-class="{ success: userForm.email.$pristine, danger: !userForm.email.$pristine }">Pristine</td>
+                    </tr>
+                    <tr>
+                        <td ng-class="{ success: userForm.email.$dirty }">Dirty</td>
+                    </tr>
+                    <tr>
+                        <td ng-class="{ success: userForm.email.$touched }">Touched</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</div>
+
+	<script>
+		angular.module('todoApp', [])
+		  .controller('TodoListController', function() {
+			var todoList = this;
+			todoList.todos = [
+			  {text:'learn angular', done:true},
+			  {text:'build an angular app', done:false}];
+		 
+			todoList.addTodo = function() {
+			  todoList.todos.push({text:todoList.todoText, done:false});
+			  todoList.todoText = '';
+			};
+		 
+			todoList.remaining = function() {
+			  var count = 0;
+			  angular.forEach(todoList.todos, function(todo) {
+				count += todo.done ? 0 : 1;
+			  });
+			  return count;
+			};
+		 
+			todoList.archive = function() {
+			  var oldTodos = todoList.todos;
+			  todoList.todos = [];
+			  angular.forEach(oldTodos, function(todo) {
+				if (!todo.done) todoList.todos.push(todo);
+			  });
+			};
+		  })
+		  .controller('mainController', function($scope) {
+
+		// function to submit the form after all validation has occurred			
+		$scope.submitForm = function(isValid) {
+
+			// check to make sure the form is completely valid
+			if (isValid) { 
+				alert('our form is amazing');
+			}
+
+		}});
+	
+		/*	
+			Property	Class			Description
+			$valid		ng-valid		Boolean Tells whether an item is currently valid based on the rules you placed.
+			$invalid	ng-invalid		Boolean Tells whether an item is currently invalid based on the rules you placed.
+			$pristine	ng-pristine		Boolean True if the form/input has not been used yet.
+			$dirty		ng-dirty		Boolean True if the form/input has been used.
+			$touched	ng-touched		Boolean True if the input has been blurred.
+		*/
+	</script>
+  </body>
+</html>
