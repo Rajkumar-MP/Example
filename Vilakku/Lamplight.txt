@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+function chgimg(x)
+{
+i1.src=x;
+}
+</script>
+</head>
+<body>
+<center>
+<h2>TCS TEAM WELCOMES ING DELEGATES</h2>
+<img id="i1" src="l1.png"  /><br>
+<b>CLICK THE BUTTON TO LIGHT THE KUTHUVILAKKU</b><br><br>
+<input type="button" value="MICHAEL" onclick="chgimg('l2.gif')" />
+<input type="button" value="XXXX" onclick="chgimg('l3.gif')" />
+<input type="button" value="YYYY" onclick="chgimg('l4.gif')" />
+<input type="reset" value="RESET" onclick="chgimg('l1.png')" /><br>
+</center>
+</body>
+</html>
