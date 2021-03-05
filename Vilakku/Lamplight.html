@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    
+
     <link href="./fonts/roboto.css" rel="stylesheet">
     <style>
         area {
@@ -15,89 +15,105 @@
             background-size: initial;
             font-family: 'Roboto Slab', serif;
         }
+
         .row {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
         }
+
         .column {
             flex-basis: 100%;
             flex: 1;
         }
+
         .lamp-light {
             width: 540px;
             position: absolute;
         }
+
         .lamp-light #i22 {
             width: 540px;
             height: 560px;
         }
-        .design-spacer{
+
+        .design-spacer {
             height: 200px;
         }
+
         .heading {
             color: white;
         }
+
         .light-1 {
             position: absolute;
-    top: 115px;
-    width: 31px;
-    left: 192px;
+            top: 115px;
+            width: 31px;
+            left: 192px;
         }
+
         .light-2 {
             position: absolute;
-    top: 117px;
-    width: 31px;
-    left: 242px;
+            top: 117px;
+            width: 31px;
+            left: 242px;
         }
+
         .light-3 {
             position: absolute;
-    top: 112px;
-    width: 31px;
-    left: 298px;
+            top: 112px;
+            width: 31px;
+            left: 298px;
         }
+
         .hidden {
             display: none;
+        }
+
+        .logo-tcs {
+            position: fixed;
+            width: 275px;
+            top: 66px;
+            left: 145px;
+        }
+
+        .logo-ing {
+            position: fixed;
+            width: 250px;
+            top: 75px;
+            left: 674px;
         }
     </style>
 </head>
 
 <body>
     <div class="design-spacer"></div>
+    <img class="logo-tcs" src="tcs-logo.png" />
+    <img class="logo-ing" src="ing-logo.png" />
     <div class="row">
-        <!-- <img id="i1" src="l1.png" usemap="#image-map" />
-            <map name="image-map">
-                <area target="" alt="" title="" href="javascript:;" coords="219,133,12" shape="circle"
-                onclick="diyaSelect('l2.gif')" />
-                <area target="" alt="" title="" href="javascript:;" coords="329,135,13" shape="circle"
-                onclick="diyaSelect('l3.gif')" />
-                <area target="" alt="" title="" href="javascript:;" coords="274,136,11" shape="circle"
-                onclick="diyaSelect('l4.gif')" />
-            </map>
-             -->
         <div class="left-sideview column">
             <h2 class="heading">TCS TEAM WELCOMES ING DELEGATES</h2>
-    
         </div>
         <div class="right-sideview column">
             <div class="lamp-light">
                 <img class="light-3 hidden" src="light_11.gif" />
                 <img class="light-2 hidden" src="light_11.gif" />
                 <img class="light-1 hidden" src="light_11.gif" />
-                <img id="i22" src="lrs01.png" usemap="#image-map"/>
-                    <map name="image-map">
-                        <area href="javascript:;" coords="210,146,15" shape="circle" onclick="diyaSelect('light-1')">
-                        <area href="javascript:;" coords="263,148,16" shape="circle" onclick="diyaSelect('light-2')">
-                        <area href="javascript:;" coords="318,140,16" shape="circle" onclick="diyaSelect('light-3')">
-                    </map>
+                <img id="i22" src="lrs01.png" usemap="#image-map" />
+                <map name="image-map">
+                    <area href="javascript:;" coords="210,146,15" shape="circle" onclick="diyaSelect('light-1')">
+                    <area href="javascript:;" coords="263,148,16" shape="circle" onclick="diyaSelect('light-2')">
+                    <area href="javascript:;" coords="318,140,16" shape="circle" onclick="diyaSelect('light-3')">
+                </map>
                 </map>
             </div>
         </div>
-       
+
     </div>
     <script type="text/javascript">
-        
-        function diyaSelect(val) { console.log(val);
+
+        function diyaSelect(val) {
+            console.log(val);
             document.querySelector(`.${val}`).classList.remove('hidden')
         }
     </script>
