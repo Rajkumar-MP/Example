@@ -1,0 +1,12 @@
+*************************************
+
+Imagine you're trying to schedule a 
+meeting with coworker, but both of you have busy schedules. You have access to your calendars, which list your meetings for the day, along with your daily availability bounds (the earliest and latest times you're available). The same goes for your coworker.
+
+The interviewer asked me to write a function that takes in all this information my calendar, my availability bounds, coworkers calendar, coworkers availability bounds, and the desired meeting duration.
+
+The goal? To return a list of all possible meeting times, ordered from earliest to latest.
+
+The function had to find these time blocks, where both I and coworker could meet without any conflicts.
+
+*************************************
